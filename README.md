@@ -1,7 +1,7 @@
 # DataVisualization-Project
 # Aesthetics vs Efficiency: Is the "Beautiful Game" a Trap? ⚽📊
 
-![Napoli Performance Profile](napoli_pizzaplot.png)
+![Napoli Performance Profile](Napoli_Pizza_Chart.png)
 *(Fig. 1: The Efficiency Model - Napoli's 24/25 Percentile Rank Profile)*
 
 > **Course:** Data Visualization | MSc in Data Science, University of Milano-Bicocca
@@ -15,38 +15,38 @@
 This project presents a data-driven investigation into one of the most polarizing debates in Italian football: **"Giochisti" (Aesthetes) vs "Risultatisti" (Pragmatists)**.
 Using advanced metrics from the **2024/25 Serie A Season**, the analysis challenges the conventional wisdom that ball possession and territorial dominance differ from actual success.
 
-[cite_start]The project explores the concept of **"Sterile Dominance"**[cite: 248]: why teams with elite possession metrics often fail to achieve results, while pragmatic sides maximize efficiency. Through unsupervised learning (K-Means) and comparative visual analytics, the study identifies distinct **Tactical Identities** and quantifies the **Efficiency Gap** between creating chances (xG) and converting them.
+The project explores the concept of **"Sterile Dominance"**: why teams with elite possession metrics often fail to achieve results, while pragmatic sides maximize efficiency. Through unsupervised learning (K-Means) and comparative visual analytics, the study identifies distinct **Tactical Identities** and quantifies the **Efficiency Gap** between creating chances (xG) and converting them.
 
 ## 🎯 Project Objectives
 
-* [cite_start]**Deconstruct "Sterile Dominance":** Quantify the disconnect between aesthetic metrics (Ball Possession %, Field Tilt) and concrete output (Points, Goals)[cite: 14].
-* [cite_start]**Map Tactical Identities:** Classify Serie A teams into 4 distinct archetypes (e.g., *Patient Strategists* vs *Elite Aggressors*) using **K-Means Clustering** on style metrics[cite: 67].
-* [cite_start]**Measure Conversion Efficiency:** Reveal the "hidden" performance by analyzing the divergence between Expected Goals (xG) and Actual Goals to identify clinical overperformers versus wasteful sides[cite: 17].
-* [cite_start]**Champion's Profile Analysis:** A case study on **Napoli** (visualized above), demonstrating how defensive solidity (xGA overperformance) outweighed offensive volume[cite: 27, 388].
+* **Deconstruct "Sterile Dominance":** Quantify the disconnect between aesthetic metrics (Ball Possession %, Field Tilt) and concrete output (Points, Goals).
+* **Map Tactical Identities:** Classify Serie A teams into 4 distinct archetypes (e.g., *Patient Strategists* vs *Elite Aggressors*) using **K-Means Clustering** on style metrics.
+* **Measure Conversion Efficiency:** Reveal the "hidden" performance by analyzing the divergence between Expected Goals (xG) and Actual Goals to identify clinical overperformers versus wasteful sides.
+* **Champion's Profile Analysis:** A case study on **Napoli** (visualized above), demonstrating how defensive solidity (xGA overperformance) outweighed offensive volume.
 
 ## 🔬 Methodologies & Technical Framework
 
 The analysis is built on a custom **ETL pipeline** and statistical framework developed in Python:
 
 ### 1. Data Pipeline (ETL)
-* [cite_start]**Ingestion:** Integration of 7 distinct datasets from **FBref (StatsBomb)** covering Shooting, Passing, Possession, and Defense[cite: 32].
-* [cite_start]**Parsing & Cleaning:** Custom parsers (`SerieA preprocessing.ipynb`) handles European formatting, sanitizes string keys, and merges data into a consolidated structure of **20 teams x 70 variables**[cite: 55].
+* **Ingestion:** Integration of 7 distinct datasets from **FBref (StatsBomb)** covering Shooting, Passing, Possession, and Defense.
+* **Parsing & Cleaning:** Custom parsers (`SerieA preprocessing.ipynb`) handles European formatting, sanitizes string keys, and merges data into a consolidated structure of **20 teams x 70 variables**.
 * **Feature Engineering:**
-    * [cite_start]**Per 90 Standardization:** All volume metrics normalized to 90-minute averages for fair comparison[cite: 63].
+    * **Per 90 Standardization:** All volume metrics normalized to 90-minute averages for fair comparison.
     * **Efficiency Ratios:** Calculation of conversion rates (e.g., *Tackle Win %*, *Passing Accuracy*).
 
 ### 2. Statistical Analysis
-* [cite_start]**Z-Score Normalization:** Applied to heterogeneous metrics (e.g., *Possession %* vs *Shots on Target*) to create comparable scales for **Radar Charts**[cite: 61].
-* [cite_start]**Unsupervised Learning (Clustering):** Implementation of **K-Means** to segment teams based on `Directness`, `PPDA proxies`, and `Possession`, revealing the league's tactical structure beyond simple rankings[cite: 67].
-* [cite_start]**Residual Analysis:** Measuring the "Luck/Skill" factor by calculating the residuals between Expected (xG/xGA) and Actual outcomes[cite: 69].
+* **Z-Score Normalization:** Applied to heterogeneous metrics (e.g., *Possession %* vs *Shots on Target*) to create comparable scales for **Radar Charts**.
+* **Unsupervised Learning (Clustering):** Implementation of **K-Means** to segment teams based on `Directness`, `PPDA proxies`, and `Possession`, revealing the league's tactical structure beyond simple rankings.
+* **Residual Analysis:** Measuring the "Luck/Skill" factor by calculating the residuals between Expected (xG/xGA) and Actual outcomes.
 
 ## 🛠️ Technologies Used
 
-* **Language:** Python 3.x
-* [cite_start]**Data Manipulation:** `Pandas`, `NumPy` (Data cleaning, merging, type casting)[cite: 57].
+* **Language:** Python 3.11
+* **Data Manipulation:** `Pandas`, `NumPy` (Data cleaning, merging, type casting).
 * **Machine Learning:** `Scikit-learn` (StandardScaler, K-Means Clustering).
-* [cite_start]**Visualization:** `Matplotlib`, `Seaborn` (Static, publication-quality charts)[cite: 58].
-* [cite_start]**Data Source:** **FBref** (via StatsBomb) & **Understat**[cite: 31, 54].
+* **Visualization:** `Matplotlib`, `Seaborn` (Static, publication-quality charts). In addition **DataWrapper** was also used for some kind of visualizations
+* **Data Source:** **FBref** (via StatsBomb) & **Understat**.
 
 ## 📥 How to View the Code
 
